@@ -1,0 +1,43 @@
+{
+  "name": "zotero-latex-fix",
+  "version": "0.1.0",
+  "description": "Zotero plugin to fix LaTeX math rendering - adds parentheses and bracket delimiter support",
+  "config": {
+    "addonName": "Zotero LaTeX Fix",
+    "addonID": "zoterolatexfix@zotero.plugin",
+    "addonRef": "zoterolatexfix",
+    "addonInstance": "ZoteroLatexFix",
+    "prefsPrefix": "extensions.zotero.zoterolatexfix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Chocay/zotero-latex-fix.git"
+  },
+  "author": "Zotero Plugin Developer",
+  "homepage": "https://github.com/Chocay/zotero-latex-fix#readme",
+  "license": "AGPL-3.0-or-later",
+  "scripts": {
+    "start": "zotero-plugin serve",
+    "build": "tsc --noEmit && zotero-plugin build",
+    "lint": "prettier --write . && eslint . --fix",
+    "release": "zotero-plugin release"
+  },
+  "dependencies": {
+    "zotero-plugin-toolkit": "5.1.0-beta.13"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.2",
+    "@types/node": "^25.0.10",
+    "eslint": "^9.39.2",
+    "prettier": "^3.8.1",
+    "typescript": "^5.9.3",
+    "typescript-eslint": "^8.53.1",
+    "zotero-plugin-scaffold": "^0.8.2",
+    "zotero-types": "4.1.0-beta.4"
+  },
+  "prettier": {
+    "printWidth": 80,
+    "tabWidth": 2,
+    "endOfLine": "lf"
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+build/
+dist/
+*.xpi
+*.log
+.env
+.DS_Store
+Thumbs.db
+.scaffold
