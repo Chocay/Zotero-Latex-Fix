@@ -11,14 +11,11 @@ const EDITOR_SCRIPT = String.raw`
   window.__zoteroLatexFixInstalled = true;
 
   function replaceLatex(text) {
-    text = text.replace(/\\\((.+?)\\\)/g, '$$$1$$');
-    text = text.replace(/\\\[(.+?)\\\]/g, '$$$$$1$$$$');
+    text = text.replace(/ ?\\\((.+?)\\\) ?/g, ' $$$1$$ ');
+    text = text.replace(/ ?\\\[(.+?)\\\] ?/g, '$$$1$$');
+
     text = text.replace(/\\\{/g, '{');
     text = text.replace(/\\\}/g, '}');
-    text = text.replace(/\\\(/g, '$');
-    text = text.replace(/\\\)/g, '$');
-    text = text.replace(/\\\[/g, '$$');
-    text = text.replace(/\\\]/g, '$$');
     return text;
   }
 
