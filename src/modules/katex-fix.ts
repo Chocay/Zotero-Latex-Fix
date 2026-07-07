@@ -16,6 +16,11 @@ const EDITOR_SCRIPT = String.raw`
 
     text = text.replace(/\\\{/g, '{');
     text = text.replace(/\\\}/g, '}');
+
+    // CJK ↔ half-width spacing: space between Chinese chars and letters/digits
+    text = text.replace(/([一-鿿])([a-zA-Z0-9])/g, '$1 $2');
+    text = text.replace(/([a-zA-Z0-9])([一-鿿])/g, '$1 $2');
+    
     return text;
   }
 
