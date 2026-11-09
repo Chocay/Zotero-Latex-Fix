@@ -12,7 +12,13 @@ const EDITOR_SCRIPT = String.raw`
 
   function replaceLatex(text) {
     text = text.replace(/ ?\\\((.+?)\\\) ?/g, ' $$$1$$ ');
-    text = text.replace(/ ?\\\[(.+?)\\\] ?/g, '$$$1$$');
+    // A dot does not match line terminators, so use a cross-line character
+    // class for display math pasted across multiple lines. Keep line breaks
+    // outside delimiters intact and only flatten formatting newlines inside.
+    text = text.replace(/[ \t]*\\\[([\s\S]+?)\\\][ \t]*/g, function(_, latex) {
+      var normalized = latex.trim().replace(/\r?\n[ \t]*/g, ' ');
+      return ' $' + normalized + '$ ';
+    });
 
     text = text.replace(/\\\{/g, '{');
     text = text.replace(/\\\}/g, '}');
